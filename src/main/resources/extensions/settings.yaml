@@ -1,0 +1,11 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: s3os-settings
+spec:
+  forms: 
+    - group: basic
+      label: 使用提示
+      formSchema:
+        - $el: p
+          children: 请前往 “附件 - 存储策略” 添加策略
