@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import reactor.core.publisher.Mono;
 import run.halo.app.core.extension.attachment.Attachment;

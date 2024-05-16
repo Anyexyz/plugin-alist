@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import org.pf4j.PluginWrapper;
 import org.springframework.stereotype.Component;

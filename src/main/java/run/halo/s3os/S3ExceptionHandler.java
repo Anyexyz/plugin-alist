@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;

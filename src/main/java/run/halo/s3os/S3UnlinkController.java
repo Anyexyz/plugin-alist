@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 import run.halo.app.core.extension.attachment.Attachment;
 import run.halo.app.plugin.ApiVersion;
 
-@ApiVersion("s3os.halo.run/v1alpha1")
+@ApiVersion("alist.halo.run/v1alpha1")
 @RestController
 @RequiredArgsConstructor
 public class S3UnlinkController {

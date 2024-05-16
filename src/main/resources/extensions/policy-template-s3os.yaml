@@ -1,72 +1,52 @@
 apiVersion: storage.halo.run/v1alpha1
 kind: PolicyTemplate
 metadata:
-  name: s3os
+  name: alist
 spec:
-  displayName: S3 对象存储
-  settingName: s3os-policy-template-setting
+  displayName: Alist 存储
+  settingName: alist-policy-template-setting
 ---
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: s3os-policy-template-setting
+  name: alist-policy-template-setting
 spec:
   forms:
     - group: default
       formSchema:
         - $formkit: verificationForm
-          action: "/apis/s3os.halo.run/v1alpha1/policies/s3/validation"
-          label: 对象存储验证
+          action: "/apis/alist.halo.run/v1alpha1/policies/s3/validation"
+          label: Alist 存储验证
           children:
-            - $formkit: text
-              name: bucket
-              label: Bucket 桶名称
-              validation: required
             - $formkit: select
               name: endpointProtocol
-              label: Endpoint 访问协议
+              label: 访问协议
               options:
                 - label: HTTPS
                   value: https
                 - label: HTTP
                   value: http
               validation: required
-            - $formkit: select
-              name: enablePathStyleAccess
-              label: Endpoint 访问风格
-              options:
-                - label: Virtual Hosted Style
-                  value: false
-                - label: Path Style
-                  value: true
-              value: false
-              validation: required
             - $formkit: text
               name: endpoint
-              label: EndPoint
-              placeholder: 请填写不带bucket-name的Endpoint
+              label: 链接
+              placeholder: 请填写 Alist 站点链接
               validation: required
               help: 协议头请在上方设置，此处无需以"http://"或"https://"开头，系统会自动拼接
             - $formkit: password
               name: accessKey
-              label: Access Key ID
-              placeholder: 存储桶用户标识(用户名)
+              label: 用户名
+              placeholder: 用户名
               validation: required
             - $formkit: password
               name: accessSecret
-              label: Access Key Secret
-              placeholder: 存储桶密钥(密码)
+              label: 密码
+              placeholder: 密码
               validation: required
-            - $formkit: text
-              name: region
-              label: Region
-              placeholder: 如不填写，则默认为"Auto"
-              help: 若Region为Auto无法使用，才需要填写对应Region
             - $formkit: text
               name: location
               label: 上传目录
               placeholder: 如不填写，则默认上传到根目录
-              help: 支持的占位符请查阅：https://github.com/halo-dev/plugin-s3#上传目录
             - $formkit: select
               name: randomFilenameMode
               label: 上传时重命名文件方式
@@ -102,7 +82,7 @@ spec:
               label: 自定义文件名模板
               if: "$randomFilenameMode == 'custom'"
               value: "${origin-filename}"
-              help: 支持的占位符请查阅：https://github.com/halo-dev/plugin-s3#自定义文件名模板
+              help: 支持的占位符请查阅：https://github.com/Anyexyz/plugin-alist#自定义文件名模板
             - $formkit: select
               name: duplicateFilenameHandling
               label: 重复文件名处理方式
@@ -114,34 +94,3 @@ spec:
                 - label: 报错不上传
                   value: exception
               validation: required
-            - $formkit: select
-              name: protocol
-              label: 绑定域名协议
-              options:
-                - label: HTTPS
-                  value: https
-                - label: HTTP
-                  value: http
-              validation: required
-            - $formkit: text
-              name: domain
-              label: 绑定域名（CDN域名）
-              placeholder: 如不设置，那么将使用 Bucket + EndPoint 作为域名
-              help: 协议头请在上方设置，此处无需以"http://"或"https://"开头，系统会自动拼接
-            - $formkit: repeater
-              name: urlSuffixes
-              label: 网址后缀
-              help: 用于对指定文件类型的网址添加后缀处理参数，优先级从上到下只取第一个匹配项
-              value: [ ]
-              min: 0
-              children:
-                - $formkit: text
-                  name: fileSuffix
-                  label: 文件后缀
-                  placeholder: 以半角逗号分隔，例如：jpg,jpeg,png,gif
-                  validation: required
-                - $formkit: text
-                  name: urlSuffix
-                  label: 网址后缀
-                  placeholder: 例如：?imageMogr2/format/webp
-                  validation: required

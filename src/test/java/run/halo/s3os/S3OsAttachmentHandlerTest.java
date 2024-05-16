@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,7 +31,7 @@ class S3OsAttachmentHandlerTest {
         var spec = mock(Policy.PolicySpec.class);
         when(policy.getSpec()).thenReturn(spec);
 
-        when(spec.getTemplateName()).thenReturn("s3os");
+        when(spec.getTemplateName()).thenReturn("alist");
         assertTrue(handler.shouldHandle(policy));
 
         when(spec.getTemplateName()).thenReturn("invalid");

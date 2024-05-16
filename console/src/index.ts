@@ -19,7 +19,7 @@ export default definePlugin({
           title: "S3 关联",
           description: "提供将 S3 存储桶中的文件关联到 Halo 中的功能。",
           searchable: true,
-          permissions: ["plugin:s3os:link"],
+          permissions: ["plugin:alist:link"],
           menu: {
             name: "S3 关联",
             icon: markRaw(CarbonFolderDetailsReference),
@@ -35,14 +35,14 @@ export default definePlugin({
         {
           priority: 21,
           component: markRaw(S3Unlink),
-          permissions: ["plugin:s3os:unlink"],
+          permissions: ["plugin:alist:unlink"],
           props: {
             attachment: attachment,
           },
           hidden: !(
             attachment.value.metadata.annotations &&
             attachment.value.metadata.annotations[
-              "s3os.plugin.halo.run/object-key"
+              "alist.plugin.halo.run/object-key"
             ]
           ),
         },

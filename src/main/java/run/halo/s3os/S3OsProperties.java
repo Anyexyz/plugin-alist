@@ -1,4 +1,4 @@
-package run.halo.s3os;
+package run.halo.alist;
 
 import java.util.List;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
-package run.halo.s3os;
+package run.halo.alist;
 
-import static run.halo.s3os.S3OsProperties.DuplicateFilenameHandling;
-import static run.halo.s3os.S3OsProperties.RandomFilenameMode;
+import static run.halo.alist.S3OsProperties.DuplicateFilenameHandling;
+import static run.halo.alist.S3OsProperties.RandomFilenameMode;
 
 import com.google.common.io.Files;
 import org.apache.commons.lang3.RandomStringUtils;

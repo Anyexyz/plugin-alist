@@ -1,6 +1,6 @@
-package run.halo.s3os;
+package run.halo.alist;
 
-import static run.halo.s3os.S3OsAttachmentHandler.OBJECT_KEY;
+import static run.halo.alist.S3OsAttachmentHandler.OBJECT_KEY;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class S3LinkServiceImpl implements S3LinkService {
 
     @Override
     public Flux<Policy> listS3Policies() {
-        return client.list(Policy.class, (policy) -> "s3os".equals(
+        return client.list(Policy.class, (policy) -> "alist".equals(
             policy.getSpec().getTemplateName()), null);
     }
 

@@ -1,7 +1,7 @@
-package run.halo.s3os;
+package run.halo.alist;
 
-import static run.halo.s3os.S3OsAttachmentHandler.MULTIPART_MIN_PART_SIZE;
-import static run.halo.s3os.S3OsAttachmentHandler.checkResult;
+import static run.halo.alist.S3OsAttachmentHandler.MULTIPART_MIN_PART_SIZE;
+import static run.halo.alist.S3OsAttachmentHandler.checkResult;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ import software.amazon.awssdk.services.s3.model.CreateMultipartUploadRequest;
 import software.amazon.awssdk.services.s3.model.HeadObjectRequest;
 import software.amazon.awssdk.utils.SdkAutoCloseable;
 
-@ApiVersion("s3os.halo.run/v1alpha1")
+@ApiVersion("alist.halo.run/v1alpha1")
 @RestController
 @RequiredArgsConstructor
 @Slf4j

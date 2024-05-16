@@ -1,7 +1,7 @@
 apiVersion: v1alpha1
 kind: "Role"
 metadata:
-  name: role-template-s3os-link
+  name: role-template-alist-link
   labels:
     halo.run/role-template: "true"
   annotations:
@@ -10,22 +10,22 @@ metadata:
     rbac.authorization.halo.run/module: "S3 Attachments Management"
     rbac.authorization.halo.run/display-name: "S3 Link"
     rbac.authorization.halo.run/ui-permissions: |
-      ["plugin:s3os:link"]
+      ["plugin:alist:link"]
 rules:
-  - apiGroups: [ "s3os.halo.run" ]
+  - apiGroups: [ "alist.halo.run" ]
     resources: [ "policies" ]
     resourceNames: [ "s3" ]
     verbs: [ "get", "list" ]
-  - apiGroups: [ "s3os.halo.run" ]
+  - apiGroups: [ "alist.halo.run" ]
     resources: [ "objects" ]
     verbs: [ "get", "list" ]
-  - nonResourceURLs: ["/apis/s3os.halo.run/v1alpha1/attachments/link"]
+  - nonResourceURLs: ["/apis/alist.halo.run/v1alpha1/attachments/link"]
     verbs: [ "create" ]
 ---
 apiVersion: v1alpha1
 kind: "Role"
 metadata:
-  name: role-template-s3os-unlink
+  name: role-template-alist-unlink
   labels:
     halo.run/role-template: "true"
   annotations:
@@ -34,22 +34,22 @@ metadata:
     rbac.authorization.halo.run/module: "S3 Attachments Management"
     rbac.authorization.halo.run/display-name: "S3 UnLink"
     rbac.authorization.halo.run/ui-permissions: |
-      ["plugin:s3os:unlink"]
+      ["plugin:alist:unlink"]
 rules:
-  - apiGroups: [ "s3os.halo.run" ]
+  - apiGroups: [ "alist.halo.run" ]
     resources: [ "attachments" ]
     verbs: [ "delete" ]
 ---
 apiVersion: v1alpha1
 kind: "Role"
 metadata:
-  name: role-template-s3os-policy-config-validation
+  name: role-template-alist-policy-config-validation
   labels:
     halo.run/role-template: "true"
     halo.run/hidden: "true"
     rbac.authorization.halo.run/aggregate-to-role-template-manage-configmaps: "true"
 rules:
-  - apiGroups: ["s3os.halo.run"]
+  - apiGroups: ["alist.halo.run"]
     resources: ["policies/validation"]
     resourceNames: ["s3"]
     verbs: [ "create" ]
