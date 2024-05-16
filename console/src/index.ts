@@ -1,7 +1,7 @@
 import type { Attachment } from "@halo-dev/api-client";
 import { definePlugin } from "@halo-dev/console-shared";
-import S3Link from "./views/S3Link.vue";
-import S3Unlink from "./views/S3Unlink.vue";
+import AlistLink from "./views/AlistLink.vue";
+import AlistUnlink from "./views/AlistUnlink.vue";
 import type { Ref } from "vue";
 import { markRaw } from "vue";
 import CarbonFolderDetailsReference from "~icons/carbon/folder-details-reference";
@@ -12,16 +12,16 @@ export default definePlugin({
     {
       parentName: "ToolsRoot",
       route: {
-        path: "s3-link",
-        name: "S3Link",
-        component: S3Link,
+        path: "alist-link",
+        name: "AlistLink",
+        component: AlistLink,
         meta: {
-          title: "S3 关联",
+          title: "Alist关联",
           description: "提供将 S3 存储桶中的文件关联到 Halo 中的功能。",
           searchable: true,
           permissions: ["plugin:alist:link"],
           menu: {
-            name: "S3 关联",
+            name: "Alist关联",
             icon: markRaw(CarbonFolderDetailsReference),
             priority: 0,
           },
@@ -34,7 +34,7 @@ export default definePlugin({
       return [
         {
           priority: 21,
-          component: markRaw(S3Unlink),
+          component: markRaw(AlistUnlink),
           permissions: ["plugin:alist:unlink"],
           props: {
             attachment: attachment,

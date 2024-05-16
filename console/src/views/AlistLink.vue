@@ -61,7 +61,7 @@ const emptyTips = computed(() => {
     return "正在加载存储策略";
   } else {
     if (policyOptions.value.length <= 1) {
-      return "没有可用的存储策略，请前往【附件】添加S3存储策略";
+      return "没有可用的存储策略，请前往【附件】添加 Alist 存储策略";
     } else {
       if (!policyName.value) {
         return "请在左上方选择存储策略";
@@ -232,7 +232,7 @@ const handleModalClose = () => {
 </script>
 
 <template>
-  <VPageHeader title="关联S3文件(Beta)">
+  <VPageHeader title="关联Alist文件(Beta)">
     <template #icon>
       <CarbonFolderDetailsReference class="mr-2 self-center"/>
     </template>
