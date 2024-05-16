@@ -1,6 +1,6 @@
 # plugin-alist
 
-为 Halo 2.0 提供 Alist 的存储策略。
+为 Halo 2.0 提供 Alist 的存储策略。(基于plugin-s3修改，未完工)
 
 ## 使用方法
 
